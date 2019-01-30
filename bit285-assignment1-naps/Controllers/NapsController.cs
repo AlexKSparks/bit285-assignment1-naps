@@ -29,7 +29,7 @@ namespace bit285_assignment1_naps.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult PasswordInfo(User user, int dummy)
+        public IActionResult PasswordInfo(User user, int dummy)//lose all data within user at this point. Trying different approaches to solve this problem
         {
             return RedirectToAction("SelectPassword", user);
         }

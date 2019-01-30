@@ -8,22 +8,23 @@ namespace bit285_assignment1_naps.Models
 {
     public class PasswordSuggestionService
 {
-        public string GeneratePassword(User user)
-        {
+        public string GeneratePassword()//INjection services wont take an object as a parameter, dont know why. 
+        {                               //Subbed in no parameter to make sure logic is sound in random password maker
             string pass = "";
             Random random = new Random();
             string[] poss = new string[6];
-            poss[0] = user.FirstName;
-            poss[1] = user.LastName;
-            poss[2] = user.Email;
-            poss[3] = user.Program;
-            poss[4] = user.Bday;
-            poss[5] = user.Color;
+            poss[0] = "First"; //user.FirstName;
+            poss[1] = "Last";//user.LastName;
+            poss[2] = "Email";//user.Email;
+            poss[3] = "Program";//user.Program;
+            poss[4] = "Bday";//user.Bday;
+            poss[5] = "color";//user.Color;
 
-           
+
             for (int i = 0; i < 3; i++)
             {
-                pass = string.Concat(poss[random.Next(0, 5)]);
+                string l = poss[random.Next(0, 5)];
+                pass = pass + l.Substring(1, random.Next(l.Length));
             }
 
             return pass;
