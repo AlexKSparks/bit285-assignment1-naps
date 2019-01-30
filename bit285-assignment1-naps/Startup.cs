@@ -15,6 +15,9 @@ namespace bit285_assignment1_naps
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<bit285_assignment1_naps.Models.User>();
+            services.AddTransient<bit285_assignment1_naps.Models.PasswordSuggestionService>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -24,6 +27,11 @@ namespace bit285_assignment1_naps
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("Default", "{controller=Naps}/{action=AccountInfo}");
+            });
+
 
             app.UseFileServer();
         }
