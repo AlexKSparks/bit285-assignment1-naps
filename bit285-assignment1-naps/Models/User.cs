@@ -16,5 +16,7 @@ namespace bit285_assignment1_naps.Models
         public string Program { get; set; }
         public string Bday { get; set; }
         public string Color { get; set; }
+
+
     }
 }

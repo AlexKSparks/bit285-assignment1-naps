@@ -12,6 +12,7 @@ namespace bit285_assignment1_naps.Controllers
     public class NapsController : Controller
     {
 
+
         [HttpGet]
         public IActionResult AccountInfo()
         {
@@ -26,7 +27,7 @@ namespace bit285_assignment1_naps.Controllers
         [HttpGet]
         public IActionResult PasswordInfo(User user)
         {
-            return View();
+            return View(user);
         }
         [HttpPost]
         public IActionResult PasswordInfo(User user, int dummy)//lose all data within user at this point. Trying different approaches to solve this problem
@@ -34,12 +35,12 @@ namespace bit285_assignment1_naps.Controllers
             return RedirectToAction("SelectPassword", user);
         }
         [HttpGet]
-        public IActionResult SelectPassword()
+        public IActionResult SelectPassword(User user)
         {
-            return View();
+            return View(user);
         }
         [HttpPost]
-        public IActionResult SelectPassword(User user)
+        public IActionResult SelectPassword(User user, int dummy)
         {
             return RedirectToAction("ConfirmAccount", user);
         }
@@ -53,7 +54,7 @@ namespace bit285_assignment1_naps.Controllers
         [HttpPost]
         public IActionResult ConfirmAccount(User user, int dummy)
         {
-            return RedirectToAction("Login", user);
+            return RedirectToAction("Login");
         }
 
         [HttpGet]

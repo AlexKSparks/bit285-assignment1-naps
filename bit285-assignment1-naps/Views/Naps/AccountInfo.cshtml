@@ -5,7 +5,7 @@
 }
 <h1>New Account Information</h1>
 <fieldset>
-    <form action="/Naps/AccountInfo" method="post">
+    <form asp-controller="Naps" asp-action="AccountInfo" method="post">
         <div>
             <label asp-for="FirstName">First Name</label>
             <input asp-for="FirstName" value="Ian" />

@@ -15,7 +15,7 @@ namespace bit285_assignment1_naps
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<bit285_assignment1_naps.Models.User>();
+            services.AddSingleton<bit285_assignment1_naps.Models.User>();
             services.AddTransient<bit285_assignment1_naps.Models.PasswordSuggestionService>();
             services.AddMvc();
         }
